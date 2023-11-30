@@ -28,3 +28,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.vscode/settings.json
+components/bk_header.js
+styles/bk_global.css
+styles/bk_Home.module.css
+styles/Footer.module.css.map
+styles/Header.module.css.map
+styles/Home.module.css.map

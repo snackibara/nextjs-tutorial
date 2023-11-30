@@ -1,0 +1,296 @@
+/* scss
+※ブレイクポイントは980px,768px,480pxではなく
+※ブレイクポイントは667x
+*/
+
+$txt-color: #333;
+$txt-white:#fff;
+$color-2nd:#85b6e1;
+$color-3rd:#ccc;
+$color-4th:#8b0606;
+$elseSP:768px;
+$bg-menu:#212121;
+
+/*html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+*/
+
+/*reset*/
+/***
+    The new CSS reset - version 1.8.4 (last updated 14.2.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+ *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+/*
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+*/
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  line-break: after-white-space;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+/*reset end*/
+
+html {font-size: 62.5%; height: 100%;}
+body {width: 100%; margin: 0; padding: 0; font-size: 1.7rem; line-height: 1.6; min-height: 100vh; display: flex; flex-flow: column;}
+header{display: flex; justify-content: space-between;width: 100%; height: 70px; padding: 10px;
+  @media (min-width: ($elseSP)) {
+    height: 100px;
+  }
+  .logo {font-size: 3rem; font-weight: 700;
+    @media (min-width: ($elseSP)) { padding: 10px 0 0 20px;}
+}
+}
+main {flex: 1;}
+h1 {padding-left: 5px;font-size: 2.4rem; font-weight: bold; border-bottom: 2px solid $txt-color;}
+h2 {font-size: 1.8rem; border-left: double 10px $txt-color;padding-left: 10px; font-weight: bold;
+  &.name_cate {
+    font-size: 2rem; padding: 5px;border-bottom: solid 5px $color-3rd;position: relative; border-left: 0;
+  &::after {
+    position: absolute;
+    content: " ";
+    display: block;
+    border-bottom: solid 5px $color-2nd;
+    bottom: -5px;
+    left: 0;
+    width: 30%;
+  }
+}
+}
+/*h3 {font-size: 1.8rem; border-left: dotted 5px $color-2nd;padding-left: 10px;}*/
+footer {background-color: $color-4rh; color:$txt-white; padding: 20px;width: 100%; position: sticky;top: 100vh;
+  p{text-align: center; font-size: 1.3rem;}
+}
+section {margin-bottom: 20px;
+  @media (min-width: ($elseSP)) {
+    margin-bottom: 30px;
+  }
+}
+.contents { width: 100%; margin: 0; padding: 10px;
+  @media (min-width: ($elseSP)) { width: 80%; margin: 0 auto 40px;}
+}
+
+
+ul.cards_h, ul.cards_v { display: block;
+  li { width: 100%;border: 1px solid $color-3rd; border-radius: 4px; margin-bottom: 10px;
+    a { display: block;}
+  }
+  @media (min-width: ($elseSP)) { 
+  display: flex; justify-content: space-between; flex-wrap: wrap;
+  &::after {display: block;content:"";width: calc((100% - 40px) / 3); }
+  li {width: calc((100% - 40px) / 3); margin-bottom: 20px;}
+  }
+}
+
+/*カード横型, リスト*/
+ul.cards_h li a, ul.lst_content li a {padding: 10px;
+&:hover {opacity: 0.8;}
+}
+
+ul.cards_h li a dl, ul.lst_content li a dl {display: flex; flex-flow: row;
+      dt {width:30%; height: auto; aspect-ratio: 1; line-height: 0;
+        img {width: 100%; height: auto;}
+      }
+      dd {padding-left: 10px; width: 100%;
+        @media (min-width: ($elseSP)) {
+          width: 100%; padding-left: 20px;
+        }
+
+      dl{ flex-flow: column; width: 100%;
+        dt {line-height: 1.4; width: 100%; aspect-ratio: auto;margin-bottom: 5px;
+          @media (min-width: ($elseSP)) {
+            font-size: 2.4rem; 
+          }
+        }
+        dd {width:100%;padding: 0;
+          display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 制限したい行数が3の場合 */
+  overflow: hidden;}
+      }
+    }
+    }
+
+/*カード縦型*/    
+ul.cards_v li {overflow: hidden;
+  a {
+    &:hover {opacity: .8;}
+    dl {display: flex; flex-flow: column;
+      dt {width:100%; height: auto; aspect-ratio: 8 / 5; line-height: 0; overflow: hidden;
+        img {width: 100%; height: auto;}
+      }
+      dd {padding: 10px; width: 100%;
+      dl {flex-flow: column; width: 100%;
+        dt {line-height: 1.4; width: 100%; aspect-ratio: auto;}
+        dd {width:100%;padding: 0;display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3; /* 制限したい行数が3の場合 */
+          overflow: hidden;}
+      }
+      }
+    }
+  }
+}
+.box_txtR {display: flex; flex-flow: row-reverse;
+  .txtlnk {color: #2e47a1;
+  &:hover { opacity: .8;}
+}  
+}
+.box_btn {display: flex; justify-content: center; align-items: center;
+  .btn_more {padding: 10px; color: $txt-white; background-color:$color-2nd; width: 90%; text-align: center;
+    &:hover { opacity: .8;}
+    @media (min-width: ($elseSP)) { width: 30%;}
+}
+}
+
+/*リスト*/
+ul.lst_content { display: block;
+  li { width: 100%;border: 1px solid $color-3rd; border-radius: 4px; margin-bottom: 10px;
+    a { display: block;}
+  }
+  @media (min-width: ($elseSP)) { 
+  display: flex; flex-flow: column; border:1px 0;
+  li {margin-bottom: 20px;}
+  }
+}
+.list ul.lst_content li a dl {display: flex; flex-flow: row;
+        dt {width:30%;
+          @media (min-width: ($elseSP)) {
+            width: 14%;
+          }
+        }
+        dd {padding-left: 10px; width: 100%;
+          @media (min-width: ($elseSP)) {
+            padding-left: 20px;
+          }
+          dl{ flex-flow: column;
+            dt {line-height: 1.4; width: 100%; aspect-ratio: auto;margin-bottom: 5px;
+              @media (min-width: ($elseSP)) {
+                font-size: 2.4rem; 
+              }
+            }
+            dd {width:100%;padding: 0;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2; /* 制限したい行数が3の場合 */
+              overflow: hidden;}
+            }
+          }
+        }
+.App {min-height: 100vh;}
+
