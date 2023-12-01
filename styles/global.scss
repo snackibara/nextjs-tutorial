@@ -176,6 +176,11 @@ h2 {font-size: 1.8rem; border-left: double 10px $txt-color;padding-left: 10px; f
 footer {background-color: $color-4rh; color:$txt-white; padding: 20px;width: 100%; position: sticky;top: 100vh;
   p{text-align: center; font-size: 1.3rem;}
 }
+a {
+  &:hover {
+    color:$color-4th; font-weight: bold;
+  }
+}
 section {margin-bottom: 20px;
   @media (min-width: ($elseSP)) {
     margin-bottom: 30px;

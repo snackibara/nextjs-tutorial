@@ -54,13 +54,18 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
-    padding: 5px;
+    /*padding: 5px;*/
   }
+  .listItem a {
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+    }
   @media (min-width: 768px) {
     .listItem {
       width: calc((100% - 40px)/3);
       margin-bottom: 20px;
-      padding: 10px;
+      /*padding: 10px;*/
     }
     .list:after {
       display: block;

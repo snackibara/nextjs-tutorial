@@ -222,6 +222,10 @@ footer {
 }
 footer p {text-align: center;font-size: 1.3rem;margin-bottom: 0;}
 
+a:hover {
+    color:#8b0606; font-weight: bold;
+  }
+
 .App {min-height: 100vh;}
 
 
