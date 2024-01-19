@@ -1,8 +1,3 @@
-/* scss
-※ブレイクポイントは980px,768px,480pxではなく
-※ブレイクポイントは667x
-*/
-
 $txt-color: #333;
 $txt-white:#fff;
 $color-2nd:#85b6e1;
@@ -10,6 +5,15 @@ $color-3rd:#ccc;
 $color-4th:#8b0606;
 $elseSP:768px;
 $bg-menu:#212121;
+
+/*三本線用*/
+@mixin hum-border {content: "";display: block;height: 3px;width: 25px;border-radius: 3px;background-color: $bg-menu;position: absolute;}
+
+
+/* scss
+※ブレイクポイントは980px,768px,480pxではなく
+※ブレイクポイントは667x
+*/
 
 /*html,
 body {
@@ -148,14 +152,6 @@ meter {
 
 html {font-size: 62.5%; height: 100%;}
 body {width: 100%; margin: 0; padding: 0; font-size: 1.7rem; line-height: 1.6; min-height: 100vh; display: flex; flex-flow: column;}
-header{display: flex; justify-content: space-between;width: 100%; height: 70px; padding: 10px;
-  @media (min-width: ($elseSP)) {
-    height: 100px;
-  }
-  .logo {font-size: 3rem; font-weight: 700;
-    @media (min-width: ($elseSP)) { padding: 10px 0 0 20px;}
-}
-}
 main {flex: 1;}
 h1 {padding-left: 5px;font-size: 2.4rem; font-weight: bold; border-bottom: 2px solid $txt-color;}
 h2 {font-size: 1.8rem; border-left: double 10px $txt-color;padding-left: 10px; font-weight: bold;
@@ -173,8 +169,73 @@ h2 {font-size: 1.8rem; border-left: double 10px $txt-color;padding-left: 10px; f
 }
 }
 /*h3 {font-size: 1.8rem; border-left: dotted 5px $color-2nd;padding-left: 10px;}*/
-footer {background-color: $color-4rh; color:$txt-white; padding: 20px;width: 100%; position: sticky;top: 100vh;
-  p{text-align: center; font-size: 1.3rem;}
+
+/*header*/
+header{display: flex; justify-content: space-between;width: 100%; height: 70px; padding: 10px;
+  @media (min-width: ($elseSP)) {
+    height: 100px;
+  }
+  .logo {font-size: 3rem; font-weight: 700;
+    a {
+      &:hover {color:$txt-color;}
+    }
+    @media (min-width: ($elseSP)) { padding: 10px 0 0 20px;
+    a {
+      &:visited {color:$txt-color;}
+    }
+  }
+}
+
+/*-----menu*/
+/* menu button */
+.hamburger-menu {
+  @media screen and (min-width: ($elseSP)) {
+    width: 60%;
+  }
+
+  .menu-btn {position: relative;top: 0;right: 0;display: flex;height: 50px;width: 50px;justify-content: center;align-items: center;z-index: 90;background-color: transparent;
+    @media screen and (min-width: ($elseSP)) {display: none;}
+    &hover {cursor: pointer;}
+    /*三本線*/
+    span {@include hum-border;
+    &::before {@include hum-border;bottom: 8px;}
+    &::after {@include hum-border;bottom: -8px;}
+    }
+    }
+
+#menu-btn-check {display: none;
+    &:checked ~ .menu-btn { background-color: $bg-menu;
+     span {background-color: $bg-menu;
+      /* メニューを開いている時はハンバーガーボタンが×になる */
+        &::before {bottom: 0;transform: rotate(45deg); background-color: $txt-white;}
+        &::after {top: 0;transform: rotate(-45deg); background-color: $txt-white;}
+     }
+}
+}
+
+/* menu contents */
+.menu-content {width: 80%;height: 100%;position: fixed;top: 0;/* メニューを外に出しておく */left: 100%;z-index: 80;background-color:#212121;transition: all 0.5s; /*アニメーションを滑らかにする*/
+  @media screen and (min-width: ($elseSP)) {position: relative; background-color:$txt-white; position: relative; left: auto; width: 100%;}
+  ul {padding: 70px 10px 0;
+    @media screen and (min-width: ($elseSP)) {display: flex; justify-content: space-around; padding: 10px;}
+    li {border-bottom: solid 1px $txt-white;list-style: none;
+      a {display: block;width: 100%;font-size: 1.6rem;box-sizing: border-box;color: $txt-white;text-decoration: none;padding: 9px 15px 10px 5px;position: relative;
+        @media screen and (min-width: ($elseSP)) {color: $txt-color; font-weight:700;}
+      }
+    }
+  }
+}
+/*メニューを画面内へ動かす*/
+#menu-btn-check:checked ~ .menu-content {left: 30%; }
+
+  }
+
+}
+
+/*footer*/
+footer {background-color:$color-4th; color:$txt-white; padding: 20px;width: 100%; position: sticky;top: 100vh;
+  p{text-align: center; font-size: 1.3rem; display: flex; justify-content: center;
+  img {margin-right: 5px;}}
 }
 a {
   &:hover {

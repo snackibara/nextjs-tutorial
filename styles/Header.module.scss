@@ -8,8 +8,8 @@ $bg-menu:#212121;
 @mixin hum-border {content: "";display: block;height: 3px;width: 25px;border-radius: 3px;background-color: $bg-menu;position: absolute;}
 
 /*-----menu*/
-  /* menu button */
-  .hamburger-menu {
+/* menu button */
+.hamburger-menu {
   .menu-btn {position: relative;top: 0;right: 0;display: flex;height: 50px;width: 50px;justify-content: center;align-items: center;z-index: 90;background-color: transparent;
     &hover {cursor: pointer;}
     /*三本線*/
