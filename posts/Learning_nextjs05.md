@@ -1,5 +1,5 @@
 ---
-title: 'Next.jsの学習雑記 04'
+title: 'Next.jsの学習雑記 05'
 date: '2025-12-08'
 description: 'Next.jsの学習中に気づいたことや思ったこと。ナビゲーションのコンポーネント化'
 ---
