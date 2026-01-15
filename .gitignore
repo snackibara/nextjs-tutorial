@@ -30,6 +30,8 @@ styles/Header.module.css.map
 styles/Home.module.css.map
 styles/global.css.map
 styles/utils.module.css.map
+posts/posts/pre-rendering.md
+posts/posts/ssg-ssr.md
 
 
 .gitignore
