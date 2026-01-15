@@ -177,7 +177,7 @@ header{display: flex; justify-content: space-between;width: 100%; height: 70px; 
   }
   .logo {font-size: 3rem; font-weight: 700;
     a {
-      &:hover {color:$txt-color;}
+      &:hover {color: $txt-color;}
     }
     @media (min-width: ($elseSP)) { padding: 10px 0 0 20px;
     a {
